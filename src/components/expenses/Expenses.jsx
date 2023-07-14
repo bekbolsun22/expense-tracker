@@ -3,6 +3,7 @@ import ExpenseList from './ExpenseList'
 import Card from '../UI/card/Card'
 import ExpensesFilter from './ExpensesFilter'
 import './Expenses.css'
+import ExpensesChart from './ExpensesChart'
 
 const Expenses = ({ expenses = [], onDeleteExpense }) => {
 	const [selectedYear, setSelectedYear] = useState('All')
@@ -27,6 +28,7 @@ const Expenses = ({ expenses = [], onDeleteExpense }) => {
 				selectedYear={selectedYear}
 				onSelectedYearChange={selectedYearChangeHandler}
 			/>
+			<ExpensesChart expenses={renderedExpenses} />
 			<ExpenseList
 				onDeleteExpense={onDeleteExpense}
 				expenses={renderedExpenses}
