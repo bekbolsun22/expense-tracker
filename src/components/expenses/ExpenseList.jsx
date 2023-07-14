@@ -33,6 +33,7 @@ const ExpenseList = ({ expenses = [], onDeleteExpense }) => {
 					{expenses.map((expense) => {
 						return (
 							<ExpenseItem
+								key={expense.id}
 								onDeleteExpense={onDeleteExpense}
 								date={expense.date}
 								title={expense.title}

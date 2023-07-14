@@ -41,6 +41,7 @@ const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 			setTitle('')
 			setAmount('')
 			setDate('')
+			onCloseForm()
 			// state batching => пакетирование setState
 		} else {
 			alert('Заполните все поля!')

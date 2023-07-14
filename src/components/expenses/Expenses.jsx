@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ExpenseList from './ExpenseList'
-import './Expenses.css'
 import Card from '../UI/card/Card'
+import ExpensesFilter from './ExpensesFilter'
+import './Expenses.css'
 
 const Expenses = ({ expenses = [], onDeleteExpense }) => {
+	const [selectedYear, setSelectedYear] = useState('All')
+
+	const selectedYearChangeHandler = (e) => {
+		setSelectedYear(e.target.value)
+	}
+
+	const filteredExpenses = expenses.filter((expense) => {
+		if (expense.date.getFullYear().toString() === selectedYear) {
+			return true
+		}
+		return false
+	})
+
+	const renderedExpenses =
+		selectedYear === 'All' ? expenses : filteredExpenses
+
 	return (
 		<Card className='expenses'>
+			<ExpensesFilter
+				selectedYear={selectedYear}
+				onSelectedYearChange={selectedYearChangeHandler}
+			/>
 			<ExpenseList
 				onDeleteExpense={onDeleteExpense}
-				expenses={expenses}
+				expenses={renderedExpenses}
 			/>
 		</Card>
 	)
