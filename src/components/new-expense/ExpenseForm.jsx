@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import FormInput from '../UI/input/FormInput'
 import Button from '../UI/button/Button'
 import './ExpenseForm.css'
@@ -50,7 +50,7 @@ const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 	return (
 		<form onSubmit={submitHandler}>
 			<div className='new-expense__controls'>
-				<input
+				<FormInput
 					label={'Заголовок'}
 					type='text'
 					onChange={titleChangeHandler}
@@ -81,3 +81,11 @@ const ExpenseForm = ({ onCloseForm, onAddNewExpense }) => {
 }
 
 export default ExpenseForm
+
+// git init
+// git add .
+// git commit -m "message"
+// git branch -M feature/old-name feature/new-name
+
+// git checkout
+//
